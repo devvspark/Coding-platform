@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin "daisyui";
+
+body { 
+font-family: 'Inter', sans-serif; 
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Enhanced theme support */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced scrollbar for both themes */
+.theme-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.theme-scrollbar::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+.theme-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--text-secondary);
+    border-radius: 4px;
+    border: 2px solid var(--bg-secondary);
+    transition: background-color 0.3s ease;
+}
+
+.theme-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-primary);
+}
+
+/* Firefox Scrollbar */
+.theme-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-secondary) var(--bg-secondary);
+}
+
+/* Legacy dark-scrollbar for backward compatibility */
+.dark-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.dark-scrollbar::-webkit-scrollbar-track {
+    background: #1e293b; /* bg-slate-800 */
+}
+.dark-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #475569; /* bg-slate-600 */
+    border-radius: 4px;
+    border: 2px solid #1e293b; /* bg-slate-800 */
+}
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #64748b; /* bg-slate-500 */
+}
+
+/* Firefox Scrollbar */
+.dark-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #475569 #1e293b; /* thumb track */
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+    /* Safari and Chrome */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
