@@ -13,7 +13,7 @@ const login = async (req, res) => {
         // this function first checks whether the user with the given email exists
         // If yes, then checks whether the given password is right or wrong
         // if password is true, then returns user details else throw error "Invalid Credentials"
-        const user = await getUser(req.body)
+        const user = await getUser(req.body) 
         const { streaks } = user;
 
         const lastUpdated = getDayDifferenceFromDate(streaks.lastUpdated);
@@ -21,7 +21,7 @@ const login = async (req, res) => {
             if(lastUpdated===1) 
                 streaks.current++;
             else 
-                streaks.current = 1;
+                streaks.current = 1; 
             
             if(streaks.current > streaks.longest)
                 streaks.longest = streaks.current;
