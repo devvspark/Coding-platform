@@ -32,12 +32,14 @@ const ProblemsPage = ({ darkTheme, handleThemeChange }) => {
     const attempted = allProblems.filter((p) => p.status === 'Attempted').length;
 
     const solvedByDifficulty = {
+      Basic: allProblems.filter((p) => p.status === 'Solved' && p.difficulty === 'Basic').length,
       Easy: allProblems.filter((p) => p.status === 'Solved' && p.difficulty === 'Easy').length,
       Medium: allProblems.filter((p) => p.status === 'Solved' && p.difficulty === 'Medium').length,
       Hard: allProblems.filter((p) => p.status === 'Solved' && p.difficulty === 'Hard').length,
     };
 
     const totalByDifficulty = {
+      Basic: allProblems.filter((p) => p.difficulty === 'Basic').length,
       Easy: allProblems.filter((p) => p.difficulty === 'Easy').length,
       Medium: allProblems.filter((p) => p.difficulty === 'Medium').length,
       Hard: allProblems.filter((p) => p.difficulty === 'Hard').length,
