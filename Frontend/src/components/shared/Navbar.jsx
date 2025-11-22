@@ -138,7 +138,7 @@ const Navbar = () => {
                       <button
                         key={'logout'}
                         onClick={() => handleProfileItemClick('logout')}
-                        className="block w-full text-left px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-[#000dff9f] transition-colors"
+                        className="block w-full cursor-pointer text-left px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-[#000dff9f] transition-colors"
                         role="menuitem"
                       >
                         Logout
@@ -150,12 +150,12 @@ const Navbar = () => {
             ) : (
               <>
                 <button onClick={() => { navigate("/login") }}
-                  className="text-slate-600 dark:text-gray-300 bg-transparent hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-gray-600 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150"
+                  className="text-slate-600 cursor-pointer dark:text-gray-300 bg-transparent hover:bg-slate-100 dark:hover:bg-gray-700 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-gray-600 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150"
                 >
                   Log In
                 </button>
                 <button onClick={() => { navigate("/signup") }}
-                  className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 shadow-md hover:shadow-lg"
+                  className="text-white cursor-pointer bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 shadow-md hover:shadow-lg"
                 >
                   Sign Up
                 </button>
