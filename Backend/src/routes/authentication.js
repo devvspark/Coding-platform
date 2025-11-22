@@ -6,6 +6,14 @@ const { authWithGoogle, redirectToGooglePage } = require("../controllers/authent
 const { authWithGithub, redirectToGithubPage } = require("../controllers/authentication/continueWithGithub");
 const { sendVerificationEmail, verifyEmail } = require("../controllers/authentication/verifyEmail");
 
+// Add this debug route
+authRouter.get('/debug', (req, res) => {
+    res.json({ 
+      message: 'Auth router is working',
+      routes: ['/google', '/github', '/login', '/register']
+    });
+  });
+
 // authenticating user
 authRouter.get("/check", verifyToken, doesAccountExist, sendUserBasicDetails);
 

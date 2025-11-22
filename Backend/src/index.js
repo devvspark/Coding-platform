@@ -13,6 +13,23 @@ const adminRouter = require('./routes/admin');
 const aiRouter = require("./routes/ai");
 const cors = require("cors");
 
+console.log('=== Loading Routes ===');
+
+try {
+  const authRouter = require("./routes/authentication");
+  console.log('✅ Auth router loaded successfully');
+} catch (error) {
+  console.log('❌ Auth router failed to load:', error.message);
+  console.log('Error stack:', error.stack);
+}
+
+try {
+  const { authWithGithub, redirectToGithubPage } = require("./controllers/authentication/continueWithGithub");
+  console.log('✅ GitHub OAuth controller loaded');
+} catch (error) {
+  console.log('❌ GitHub OAuth controller failed to load:', error.message);
+  console.log('Error stack:', error.stack);
+}
 
 app.use(cors({
     origin: process.env.FRONTEND_ORIGIN,
@@ -57,7 +74,7 @@ const InitializeConnections = async () => {
         // starting server
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`HackForge server started on port ${port}`);
+            console.log(`Codemaster server started on port ${port}`);
             console.log(`Frontend origin: ${process.env.FRONTEND_ORIGIN}`);
             console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
         });
