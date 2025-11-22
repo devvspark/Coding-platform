@@ -84,14 +84,21 @@ export const LoginPage = () => {
 
           <button
             type="button"
-            className="w-full py-2 px-4 mt-2 text-sm font-medium text-blue-500 bg-blue-50 dark:bg-gray-700 dark:text-blue-300 rounded-md hover:bg-blue-100 dark:hover:bg-gray-600 transition"
+            className="w-full py-3 px-4 mt-2 text-sm font-semibold rounded-md 
+                      flex items-center justify-center gap-2 
+                      bg-gradient-to-r from-amber-500 to-orange-600 
+                      hover:from-amber-600 hover:to-orange-700 
+                      text-white shadow-lg hover:shadow-xl 
+                      transition-all duration-200 active:scale-95"
             onClick={() => {
               setValue("emailId", "demo@codemaster.com");
               setValue("password", "DemoUser@123");
+              handleSubmit(onSubmit)(); // auto login
             }}
           >
-            🔥 Use Demo Login
+            🚀 Use Demo Login
           </button>
+
 
           <div>
             <button
