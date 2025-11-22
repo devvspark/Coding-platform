@@ -76,13 +76,13 @@ export const LoginPage = () => {
             onToggleVisibility={togglePasswordVisibility}
           />
 
-          <div className="flex items-center justify-end">
+          {/* <div className="flex items-center justify-end">
             <div className="text-sm">
               <a href="#" className="font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 focus:outline-none focus:underline">
                 Forgot your password?
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* <button
             type="button"
