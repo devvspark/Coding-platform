@@ -52,18 +52,11 @@ const AdvancedSolvedStatsChart = ({ solvedStats }) => {
 
   const chartData = [
     {
-      name: "Hard",
-      uv: totalHard > 0 ? (hard / totalHard) * 100 : 0,
+      name: "Basic",
+      uv: totalBasic > 0 ? (basic / totalBasic) * 100 : 0,
       pv: 100,
-      fill: PIE_CHART_COLORS["Hard"],
-      displayName: `Hard: ${hard}/${totalHard}`,
-    },
-    {
-      name: "Medium",
-      uv: totalMedium > 0 ? (medium / totalMedium) * 100 : 0,
-      pv: 100,
-      fill: PIE_CHART_COLORS["Medium"],
-      displayName: `Medium: ${medium}/${totalMedium}`,
+      fill: PIE_CHART_COLORS["Basic"], // blue fallback
+      displayName: `Basic: ${basic}/${totalBasic}`,
     },
     {
       name: "Easy",
@@ -73,12 +66,20 @@ const AdvancedSolvedStatsChart = ({ solvedStats }) => {
       displayName: `Easy: ${easy}/${totalEasy}`,
     },
     {
-      name: "Basic",
-      uv: totalBasic > 0 ? (basic / totalBasic) * 100 : 0,
+      name: "Medium",
+      uv: totalMedium > 0 ? (medium / totalMedium) * 100 : 0,
       pv: 100,
-      fill: PIE_CHART_COLORS["Basic"], // blue fallback
-      displayName: `Basic: ${basic}/${totalBasic}`,
+      fill: PIE_CHART_COLORS["Medium"],
+      displayName: `Medium: ${medium}/${totalMedium}`,
     },
+    {
+      name: "Hard",
+      uv: totalHard > 0 ? (hard / totalHard) * 100 : 0,
+      pv: 100,
+      fill: PIE_CHART_COLORS["Hard"],
+      displayName: `Hard: ${hard}/${totalHard}`,
+    },
+    
   ];
 
   const overallPercentage =

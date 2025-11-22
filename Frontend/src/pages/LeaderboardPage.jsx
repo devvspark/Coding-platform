@@ -420,6 +420,15 @@ const LeaderboardPage = () => {
                           <span className="text-sm font-bold text-slate-900 dark:text-white">{details.solvedStats.total.toLocaleString()} <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">/ {details.solvedStats.totalOverall.toLocaleString()}</span></span>
                         </div>
                         <div className="flex justify-between items-center">
+                          <span className="text-sm font-medium text-blue-600 dark:text-blue-400">Basic</span>
+                          <span className="text-sm font-bold text-slate-700 dark:text-slate-200">
+                            {details.solvedStats.basic.toLocaleString()}
+                            <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">
+                              ({details.solvedStats.totalBasic.toLocaleString()})
+                            </span>
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center">
                           <span className="text-sm font-medium text-green-600 dark:text-green-400">Easy</span>
                           <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{details.solvedStats.easy.toLocaleString()} <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">({details.solvedStats.totalEasy.toLocaleString()})</span></span>
                         </div>

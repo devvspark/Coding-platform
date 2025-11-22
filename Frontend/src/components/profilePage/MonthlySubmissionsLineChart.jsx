@@ -10,10 +10,28 @@ import {
 } from 'recharts';
 
 const MonthlySubmissionsLineChart = ({ activity }) => {
-  const formattedActivity = activity.map(item => ({
-    ...item,
-    date: new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-  }));
+  // 🔥 Ensure 30 continuous days even if user solved on only 1 or 2 days
+const ensure30Days = (data) => {
+  const today = new Date();
+  const start = new Date();
+  start.setDate(today.getDate() - 29);
+
+  const map = {};
+  data.forEach(item => (map[item.date] = item.count));
+
+  const filled = [];
+  for (let d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) {
+    const iso = d.toISOString().split("T")[0];
+    filled.push({
+      date: d.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+      count: map[iso] ?? 0
+    });
+  }
+  return filled;
+};
+
+const formattedActivity = ensure30Days(activity);
+
 
   return (
     <div style={{ width: '100%', height: 300 }}>
