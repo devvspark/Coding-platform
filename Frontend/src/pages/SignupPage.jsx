@@ -134,7 +134,7 @@ const SignupPage = () => {
           </div>
         </form>
 
-        <div className="mt-6">
+        {/* <div className="mt-6">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-slate-300 dark:border-slate-600" />
@@ -151,19 +151,19 @@ const SignupPage = () => {
               onClick={() => handleSocialLogin('google')}
               action={'Sign up'}
             />
-            {/* <SocialButton
+            <SocialButton
               providerName="GitHub"
               icon={<GithubIcon className="h-5 w-5 text-slate-800 dark:text-slate-100" />}
               onClick={() => handleSocialLogin('github')}
               action={'Sign up'}
-            /> */}
-            {/* <SocialButton
+            />
+            <SocialButton
               providerName="LinkedIn"
               icon={<LinkedInIcon className="h-5 w-5 text-blue-600 dark:text-blue-500" />}
               onClick={() => handleSocialLogin('linkedin')}
-            /> */}
+            />
           </div>
-        </div>
+        </div> */}
         <p className="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
           Already have an account?{' '}
           <Link to="/login" className="font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300">
