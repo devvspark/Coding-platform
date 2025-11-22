@@ -34,6 +34,8 @@ export const LoginPage = () => {
   const onSubmit = (data) => {
     dispatch(loginUser(data));
   };
+  const [demoFilled, setDemoFilled] = useState(false);
+
   
   const handleSocialLogin = (provider) => {
     window.location.href = `${import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_BASE_URL}/authentication/${provider}`;
@@ -82,7 +84,7 @@ export const LoginPage = () => {
             </div>
           </div>
 
-          <button
+          {/* <button
             type="button"
             className="w-full py-3 px-4 mt-2 text-sm font-semibold rounded-md 
                       flex items-center justify-center gap-2 
@@ -97,7 +99,29 @@ export const LoginPage = () => {
             }}
           >
             🚀 Use Demo Login
-          </button>
+          </button> */}
+
+        <button
+          type="button"
+          className="w-full py-3 px-4 mt-2 text-sm font-semibold rounded-md 
+                      flex items-center justify-center gap-2 
+                      bg-gradient-to-r from-amber-500 to-orange-600 
+                      hover:from-amber-600 hover:to-orange-700 
+                      text-white shadow-lg hover:shadow-xl 
+                      transition-all duration-200 active:scale-95"
+          onClick={() => {
+            if (!demoFilled) {
+              setValue("emailId", "demo@codemaster.com");
+              setValue("password", "DemoUser123");
+              setDemoFilled(true);     // Next click will trigger login
+            } else {
+              handleSubmit(onSubmit)(); // Now submit the form
+            }
+          }}
+        >
+           🚀 Use Demo Login
+        </button>
+
 
 
           <div>
