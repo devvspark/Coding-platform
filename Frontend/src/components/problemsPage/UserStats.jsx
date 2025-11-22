@@ -94,6 +94,14 @@ const UserStats = ({ stats, onStatusChange, onDifficultyChange }) => {
           Difficulty Breakdown
         </h4>
       <div className="space-y-3">
+          <ProgressBarStat
+            title="Basic"
+            icon={<Signal size={16} className="text-[#4299E1]" />}
+            value={stats.solvedByDifficulty.Basic}
+            total={stats.totalByDifficulty.Basic}
+            onDifficultyChange={onDifficultyChange}
+            colorClass="bg-[#4299E1]"   // Blue color
+          />
         <ProgressBarStat
           title="Easy"
           icon={<Signal size={16} className="text-green-500" />}
