@@ -108,7 +108,7 @@ export const LoginPage = () => {
                       bg-gradient-to-r from-amber-500 to-orange-600 
                       hover:from-amber-600 hover:to-orange-700 
                       text-white shadow-lg hover:shadow-xl 
-                      transition-all duration-200 active:scale-95"
+                      transition-all duration-200 active:scale-95 cursor-pointer"
           onClick={() => {
             if (!demoFilled) {
               setValue("emailId", "demo@codemaster.com");
@@ -127,7 +127,7 @@ export const LoginPage = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 cursor-pointer"
             >
               Log In
             </button>
