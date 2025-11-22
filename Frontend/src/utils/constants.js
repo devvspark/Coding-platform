@@ -1034,12 +1034,14 @@ export const THEME_STORAGE_KEY = 'hackforge-theme';
 
 // Chart/Color constants
 export const PIE_CHART_COLORS = {
+  basic: '#4299E1',
   Easy: '#4CAF50',
   Medium: '#FFC107',
   Hard: '#F44336',
 };
 
 export const DIFFICULTY_COLORS = {
+  Basic: 'bg-[#4299E1] text-white dark:bg-[#4299E1]/80 dark:text-white',
   Easy: 'bg-green-100 text-green-700 dark:bg-green-700/30 dark:text-green-300',
   Medium: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-700/30 dark:text-yellow-300',
   Hard: 'bg-red-100 text-red-700 dark:bg-red-700/30 dark:text-red-300',
@@ -1049,7 +1051,7 @@ export const DAILY_PROBLEMS_CHART_COLORS = {
   easy: '#4CAF50',
   hard: '#F44336',
   medium: '#FF9800',
-  basic: '#60A5FA',
+  basic: '#4299E1',
 };
 
 export const HEATMAP_COLORS = [

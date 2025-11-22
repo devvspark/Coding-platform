@@ -38,6 +38,8 @@ const ProgressBar = ({ label, solved, total }) => {
 
 const AdvancedSolvedStatsChart = ({ solvedStats }) => {
   const {
+    basic,
+    totalBasic,
     easy,
     totalEasy,
     medium,
@@ -69,6 +71,13 @@ const AdvancedSolvedStatsChart = ({ solvedStats }) => {
       pv: 100,
       fill: PIE_CHART_COLORS["Easy"],
       displayName: `Easy: ${easy}/${totalEasy}`,
+    },
+    {
+      name: "Basic",
+      uv: totalBasic > 0 ? (basic / totalBasic) * 100 : 0,
+      pv: 100,
+      fill: PIE_CHART_COLORS["Basic"], // blue fallback
+      displayName: `Basic: ${basic}/${totalBasic}`,
     },
   ];
 

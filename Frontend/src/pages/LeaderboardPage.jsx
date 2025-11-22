@@ -15,6 +15,7 @@ import { mapUserProfile as mapUserInfo, generateMappedLeaderboard } from '../uti
 
 
 const ProblemDifficulty = {
+  Basic: 'Basic',
   Easy: 'Easy',
   Medium: 'Medium',
   Hard: 'Hard',
