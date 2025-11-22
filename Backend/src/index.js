@@ -29,14 +29,42 @@ app.use("/ai", aiRouter);
 app.use("/solution-video", solutionVideoRouter);
 app.use("/admin", adminRouter);
 
-const InitializeConnections = async () => {
-    // connecting with database and redis
-    await Promise.all([main(), redisClient.connect()]);
+// Health check endpoint
+app.get("/health", (req, res) => {
+    res.status(200).json({ 
+        status: "ok", 
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
 
-    // starting server
-    app.listen(process.env.PORT, async () => {
-        console.log("HackForge server started");
-    })
+const InitializeConnections = async () => {
+    try {
+        // Check required environment variables
+        const requiredEnvVars = ['DB_CONNECTION_STRING', 'JWT_KEY', 'FRONTEND_ORIGIN', 'PORT'];
+        const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+        
+        if (missingVars.length > 0) {
+            console.error('Missing required environment variables:', missingVars);
+            process.exit(1);
+        }
+
+        console.log('Connecting to database and Redis...');
+        // connecting with database and redis
+        await Promise.all([main(), redisClient.connect()]);
+        console.log('Database and Redis connected successfully');
+
+        // starting server
+        const port = process.env.PORT || 3000;
+        app.listen(port, () => {
+            console.log(`HackForge server started on port ${port}`);
+            console.log(`Frontend origin: ${process.env.FRONTEND_ORIGIN}`);
+            console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+        });
+    } catch (error) {
+        console.error('Failed to initialize server:', error);
+        process.exit(1);
+    }
 }
 
 InitializeConnections()

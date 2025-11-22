@@ -49,15 +49,26 @@ const login = async (req, res) => {
             message: "Logged in successfully"
         } 
 
-        // sending cookie
-        res.cookie("token", token, { maxAge: 3600000 });
+        // sending cookie with production settings
+        res.cookie("token", token, {
+            httpOnly: true,       // cookie not accessible via JS
+            secure: process.env.NODE_ENV === 'production', // only sent over HTTPS in production
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // required for cross-site in production
+            maxAge: 3600000       // 1 hour
+        });
 
         // sending response with status code
         res.status(201).json(reply);
 
     } catch(error) {
-        console.log(error);
-        res.status(500).send("Error: " + error.message);
+        console.error('Login Error:', error);
+        // Log full error details for debugging
+        console.error('Error stack:', error.stack);
+        const statusCode = error.statusCode || 500;
+        res.status(statusCode).json({ 
+            error: error.message || "Internal server error",
+            ...(process.env.NODE_ENV !== 'production' && { stack: error.stack })
+        });
     }
 }
 

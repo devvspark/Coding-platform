@@ -39,16 +39,26 @@ const register = async (req, res) => {
             message: "User registered successfully"
         } 
         
-        // sending cookie
-        res.cookie("token", token, { maxAge: 3600000 });
+        // sending cookie with production settings
+        res.cookie("token", token, {
+            httpOnly: true,       // cookie not accessible via JS
+            secure: process.env.NODE_ENV === 'production', // only sent over HTTPS in production
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // required for cross-site in production
+            maxAge: 3600000       // 1 hour
+        });
 
         // sending response with status code
         res.status(201).json(reply);
 
     } catch(error) {
-        console.log(error)
+        console.error('Register Error:', error);
+        // Log full error details for debugging
+        console.error('Error stack:', error.stack);
         const status = error.statusCode || 500;
-        res.status(status).send({ error: error.message }); 
+        res.status(status).json({ 
+            error: error.message || "Internal server error",
+            ...(process.env.NODE_ENV !== 'production' && { stack: error.stack })
+        }); 
     }
 }
 
