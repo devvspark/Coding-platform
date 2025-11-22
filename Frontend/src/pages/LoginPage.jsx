@@ -112,7 +112,7 @@ export const LoginPage = () => {
           onClick={() => {
             if (!demoFilled) {
               setValue("emailId", "demo@codemaster.com");
-              setValue("password", "DemoUser123");
+              setValue("password", "DemoUser@123");
               setDemoFilled(true);     // Next click will trigger login
             } else {
               handleSubmit(onSubmit)(); // Now submit the form
