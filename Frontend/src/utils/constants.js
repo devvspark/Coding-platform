@@ -1034,7 +1034,7 @@ export const THEME_STORAGE_KEY = 'hackforge-theme';
 
 // Chart/Color constants
 export const PIE_CHART_COLORS = {
-  basic: '#4299E1',
+  Basic: '#4299E1',
   Easy: '#4CAF50',
   Medium: '#FFC107',
   Hard: '#F44336',
