@@ -221,8 +221,8 @@ export const getSolvedStats = (checkedProblems) => {
     checkedProblems = [];
 
   const solvedStats = {
-    basic: 0, totalBasic: 0, easy: 0, totalEasy: 10, medium: 0, totalMedium: 8, hard: 0, totalHard: 7,
-    total: 0, totalOverall: 25,
+    basic: 0, totalBasic: 2, easy: 0, totalEasy: 1, medium: 0, totalMedium: 1, hard: 0, totalHard: 0,
+    total: 0, totalOverall: 4,
   };
 
   for (const problem of checkedProblems) {
