@@ -20,10 +20,11 @@ const loginSchema = z.object({
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     resolver: zodResolver(loginSchema),
     mode: 'onBlur'
   });
+  
 
   // for password visibility
   const [showPassword, setShowPassword] = useState(false);
@@ -81,14 +82,26 @@ export const LoginPage = () => {
             </div>
           </div>
 
+          <button
+            type="button"
+            className="w-full py-2 px-4 mt-2 text-sm font-medium text-blue-500 bg-blue-50 dark:bg-gray-700 dark:text-blue-300 rounded-md hover:bg-blue-100 dark:hover:bg-gray-600 transition"
+            onClick={() => {
+              setValue("emailId", "demo@codemaster.com");
+              setValue("password", "DemoUser123");
+            }}
+          >
+            🔥 Use Demo Login
+          </button>
+
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-white dark:focus:ring-offset-gray-800 transition-colors shadow-md hover:shadow-lg"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600"
             >
               Log In
             </button>
           </div>
+
         </form>
 
         <div className="mt-6">
