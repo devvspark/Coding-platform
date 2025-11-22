@@ -16,7 +16,7 @@ const PrivacyPolicyPage = () => {
 
                     <h2>1. Introduction</h2>
                     <p>
-                        Welcome to HackForge ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform, including our website and services (collectively, the "Service"). By using the Service, you agree to the collection and use of information in accordance with this policy.
+                        Welcome to CodeMaster ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform, including our website and services (collectively, the "Service"). By using the Service, you agree to the collection and use of information in accordance with this policy.
                     </p>
 
                     <h2>2. Information We Collect</h2>
