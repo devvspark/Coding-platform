@@ -23,8 +23,10 @@ CodeMaster is a full-stack coding practice platform that allows users to solve p
 - **Progress Tracking:** Track solved, attempted, and bookmarked problems with activity graphs and leaderboards.
 - **AI Assistance:** AI-powered explanations and time/space complexity analysis for submitted solutions.
 - **Profile Management:** User profiles with statistics, activity history, and avatar uploads.
+- **Admin Tools:** Admin panel for managing users, problems, contests, and platform data.
+- **Theme Support:** Dark and light mode toggle for an improved and accessible user experience.
 
 
-Admin Tools: Admin panel for managing users, problems, contests, and platform data.
 
-Theme Support: Dark and light mode toggle for an improved and accessible user experience.
+
+
