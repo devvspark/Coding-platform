@@ -22,11 +22,10 @@ The project is split into:
 ## 2. Clone the Repository
 
 ```bash
-git clone <your-repo-url> leet
+git clone https://github.com/devvspark/Coding-platform.git leet
 cd leet
-```
 
-> Replace `<your-repo-url>` with the actual Git remote URL.
+```
 
 ---
 
@@ -140,18 +139,7 @@ Make sure the backend URL configured in the frontend (e.g. `VITE_API_BASE_URL`) 
 
 ---
 
-## 6. Google OAuth & Troubleshooting
-
-- Ensure your Google OAuth **redirect URI** in the Google Cloud console exactly matches the backend callback route (see `oauth2Client.js` and `authentication` controllers).
-- For detailed help, refer to:
-  - `OAUTH_TROUBLESHOOTING.md`
-  - `GOOGLE_OAUTH_FIX.md`
-
-If you change your local backend port, update the redirect URI both in Google Cloud and in your `.env`.
-
----
-
-## 7. Production Build (Frontend)
+## 6. Production Build (Frontend)
 
 To build the frontend for production:
 
@@ -164,7 +152,7 @@ This generates a `dist/` folder that can be served by any static file host or in
 
 ---
 
-## 8. Useful Scripts Summary
+## 7. Useful Scripts Summary
 
 - **Backend**:
   - `npm start` – run Express server (`src/index.js`)
